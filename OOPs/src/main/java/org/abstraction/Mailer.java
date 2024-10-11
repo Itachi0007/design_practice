@@ -2,7 +2,7 @@ package org.abstraction;
 
 public class Mailer {
     public void sendEmail() {
-        connect(10);
+        connect(Math.random());
         authenticate();
         disconnect();
 
@@ -17,7 +17,7 @@ public class Mailer {
 //    public void disconnect() {
 //    }
 
-    private void connect(int timelag) {
+    private void connect(double timelag) {
     }
     private void authenticate() {
     }
