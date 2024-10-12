@@ -1,0 +1,11 @@
+We are working with the state pattern now.
+
+Build a canvas where we can use different tools like a Brush, Eraser etc..
+
+Q. Which OOP principle fits best here?
+A. (*oly*orphis*)
+
+Q. Why is that solution wrong?
+A. If we add new tools like Circles or Fill then we need to add more IF/SWITCH statements
+   and modify the existing class
+

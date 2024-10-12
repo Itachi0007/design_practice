@@ -1,0 +1,10 @@
+Problem-
+We need to create a Computer class where we have objects of Computers like PC, server, laptops etc.
+
+Introducing a factory between super and sub class helps to reduce the coupling between them.
+
+---OCP---
+In case I make changes to PC class then my Driver need not be modified,
+but if I make a new computer type - Server, my Factory inside Driver will still support it.
+---OCP---
+
