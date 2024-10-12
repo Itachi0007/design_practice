@@ -1,0 +1,8 @@
+The Person class should focus on what it represents (a person, with properties like name, email, etc.),
+while the PersonBuilder class focuses on how to construct a Person object, with optional parameters and method chaining
+
+Q. Why my solution was bad?
+A. In the Builder Pattern, it’s a good practice to create a separate Builder class or an inner static class
+that constructs the Person object. Currently, you’re modifying the Person object itself inside the builder methods,
+which is not ideal as it couples the construction process with the product itself.
+Separating the builder keeps the object immutable and provides cleaner separation of concerns.
