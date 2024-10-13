@@ -1,5 +1,0 @@
-You need to implement an Editor which has an undo functionality.
-
-My Solution sucks because:
-Q. What if we add another field in Editor like "Titles" ?
-
