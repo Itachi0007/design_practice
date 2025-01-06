@@ -8,6 +8,7 @@ public class ProblemsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProblemsApplication.class, args);
+		System.out.println("Working on URL shortener");
 	}
 
 }
