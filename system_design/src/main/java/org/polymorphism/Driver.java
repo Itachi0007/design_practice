@@ -1,8 +1,5 @@
 package org.polymorphism;
 
-
-import org.abstraction.Mailer;
-
 public class Driver {
     public static void main(String[] args) {
         // The objects are interchange-able
