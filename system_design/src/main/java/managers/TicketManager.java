@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class TicketManager {
     private Map<Integer, Ticket> ticketMap;
-    private SprintManager sprintManager = new SprintManager();
+    private Sprint sprint = new Sprint();
 
     public TicketManager() {
         this.ticketMap = new HashMap<>();
@@ -21,15 +21,15 @@ public class TicketManager {
     public Ticket createTicket(String title, TicketType type) {
         Ticket ticket;
         switch (type) {
-            case TicketType.STORY:
+            case STORY:
                 ticket = new StoryTicket(title);
                 // only story tickets can be added in the SPRINT
-                sprintManager.addStoryToSprint(ticket);
+                sprint.addStoryToSprint(ticket);
                 break;
-            case TicketType.EPIC:
+            case EPIC:
                 ticket = new EpicTicket(title);
                 break;
-            case TicketType.ON_CALL:
+            case ON_CALL:
                 ticket = new OnCallTicket(title);
                 break;
             default:

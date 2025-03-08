@@ -1,10 +1,10 @@
 package models;
 
-import managers.SprintManager;
+import managers.Sprint;
 
 public class TicketInstances {
     public static class StoryTicket extends Ticket {
-        SprintManager sprintManager;
+        Sprint sprint;
         public StoryTicket(String title) {
             super(title, TicketType.STORY);
         }

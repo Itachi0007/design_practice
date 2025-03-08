@@ -1,4 +1,3 @@
-import managers.SprintManager;
 import managers.TicketManager;
 import models.SubTask;
 import models.Ticket;
@@ -11,7 +10,6 @@ public class Driver {
 
         // Testing story Ticket
         Ticket storyTicket = ticketManager.createTicket("Implement login feature", TicketType.STORY);
-        System.out.println(storyTicket);
         // Valid Status Updates
         ticketManager.updateTicketStatus(storyTicket.getId(), TicketStatus.IN_PROGRESS);
         ticketManager.updateTicketStatus(storyTicket.getId(), TicketStatus.TESTING);
@@ -45,7 +43,7 @@ public class Driver {
         System.out.println(subTaskEpic);
         System.out.println(subTaskOnCall);
 
-        System.out.println("\nCompleting the EPIC subtask as per its flow:");
+        System.out.println("\nProgressing the EPIC subtask as per its flow:");
         subTaskEpic.updateStatus(TicketStatus.COMPLETED);
         // Subtask testing completed
     }
