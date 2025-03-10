@@ -5,17 +5,27 @@ public class TicTac {
     private Players player2;
     private char[][] board;
     private Players currPlayer;
-    private static GameControls game;
+    private static final GameControls game = new GameControls(); // ✅ right way to init a static member
     private static int x;
     private static int y;
+    private static int moveCount = 0;
+
+    public TicTac() {
+        this.board = new char[][]{{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}};
+
+        // this.game = new GameControls(); ❌
+        // Static variables should be initialized once, not inside an instance constructor.
+
+    }
 
     public void playNewGame() {
         getPlayers();
         Scanner scanner = new Scanner(System.in);
-        board = new char[][]{{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}};
+
         currPlayer = player1;
-        while(true) {
+        while(moveCount < 9) {
             printBoard(board);
+            System.out.println(moveCount);
 
             System.out.println("Player " + currPlayer.getSymbol() + "'s turn");
             System.out.println("Enter row (0, 1, or 2): ");
@@ -30,12 +40,18 @@ public class TicTac {
             board[x][y]=currPlayer.getSymbol();
             if(game.checkWin(board, currPlayer.getSymbol())) {
                 printBoard(board);
-                System.out.println(currPlayer.getName() + " you win");
+                System.out.println(currPlayer.getName() + " you win ✨");
                 break;
             }
 
             if(currPlayer.equals(player1)) currPlayer = player2;
             else currPlayer = player1;
+
+            moveCount++;
+        }
+
+        if(moveCount == 9) {
+            System.out.println("Game is DRAW");
         }
     }
 
