@@ -6,9 +6,10 @@ public class TicTac {
     private char[][] board;
     private Players currPlayer;
     private static final GameControls game = new GameControls(); // ✅ right way to init a static member
-    private static int x;
-    private static int y;
-    private static int moveCount = 0;
+
+    private static int x; // ❌Since x will be shared among TicTac instances
+    private int y; // ✅Since each game should have its own states and move count
+    private int moveCount = 0; // ✅
 
     public TicTac() {
         this.board = new char[][]{{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}};
@@ -53,6 +54,8 @@ public class TicTac {
         if(moveCount == 9) {
             System.out.println("Game is DRAW");
         }
+
+        scanner.close();
     }
 
     private void printBoard(char[][] board) {
