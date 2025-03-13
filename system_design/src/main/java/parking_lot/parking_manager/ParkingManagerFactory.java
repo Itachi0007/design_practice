@@ -8,9 +8,9 @@ import java.util.List;
 
 
 public class ParkingManagerFactory {
-    public static List<ParkingSpot> allParkingSpots = new ArrayList<>();
+    public List<ParkingSpot> allParkingSpots = new ArrayList<>();
 
-    public static ParkingManager getManager(VehicleType vehicleType) {
+    public ParkingManager getManager(VehicleType vehicleType) {
         switch (vehicleType) {
             case FOUR_WHEELER -> {
                 return new FourWheelerManager(allParkingSpots);

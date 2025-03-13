@@ -6,8 +6,8 @@ import parking_lot.parking_manager.ParkingManager;
 import parking_lot.parking_manager.ParkingManagerFactory;
 
 public class EntranceGate {
-    public ParkingTicket collectTicket(VehicleType vehicleType) throws Exception {
-        ParkingManager parkingManager = ParkingManagerFactory.getManager(vehicleType);
+    public ParkingTicket collectTicket(VehicleType vehicleType, ParkingManagerFactory managerFactory) throws Exception {
+        ParkingManager parkingManager = managerFactory.getManager(vehicleType);
         return parkingManager.parkMyVehicle(vehicleType);
     }
 }
