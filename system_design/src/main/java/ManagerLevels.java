@@ -1,0 +1,2 @@
+public class ManagerLevels {
+}
