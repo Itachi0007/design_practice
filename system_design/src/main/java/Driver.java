@@ -20,5 +20,22 @@ public class Driver {
 
         Collections.sort(numbers, ahmerKaComparator); // in case of an [] use --> Arrays.sort(numbers)
         System.out.println(numbers); // Output: [9, 5, 3, 2, 1]
+
+
+        // Easier way to compare & sort in Java 8+
+        List<Ticket> tickets = new ArrayList<>();
+        tickets.add(new Ticket(false, 3));
+        tickets.add(new Ticket(true, 2));
+        tickets.add(new Ticket(false, 1));
+        tickets.add(new Ticket(true, 3));
+        tickets.add(new Ticket(false, 2));
+        tickets.add(new Ticket(true, 1));
+
+        tickets.sort(
+                Comparator.comparing(Ticket::getStatus)
+                        .thenComparing(Ticket::getPriority).reversed()
+        );
+
+        System.out.println(tickets);
     }
 }
