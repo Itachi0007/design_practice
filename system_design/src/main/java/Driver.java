@@ -1,3 +1,5 @@
+import models.Sprint;
+import managers.SprintManager;
 import managers.TicketManager;
 import models.SubTask;
 import models.Ticket;
@@ -7,18 +9,27 @@ import models.TicketType;
 public class Driver {
     public static void main(String[] args) {
         TicketManager ticketManager = new TicketManager();
+        SprintManager sprintManager = new SprintManager();
+
+        // Create a new sprint
+        Sprint sprint1 = sprintManager.createSprint();
 
         // Testing story Ticket
-        Ticket storyTicket = ticketManager.createTicket("Implement login feature", TicketType.STORY);
+        Ticket logoutTicket = ticketManager.createTicket("Implement LOGOUT feature", TicketType.STORY);
+        Ticket LoginTicket = ticketManager.createTicket("Implement LOGIN feature", TicketType.STORY);
+
+        // Add LOGIN feature to sprint
+        sprintManager.addStoryToSprint(LoginTicket, sprint1);
+
         // Valid Status Updates
-        ticketManager.updateTicketStatus(storyTicket.getId(), TicketStatus.IN_PROGRESS);
-        ticketManager.updateTicketStatus(storyTicket.getId(), TicketStatus.TESTING);
-        ticketManager.updateTicketStatus(storyTicket.getId(), TicketStatus.IN_REVIEW);
-        ticketManager.updateTicketStatus(storyTicket.getId(), TicketStatus.DEPLOYED);
+        ticketManager.updateTicketStatus(logoutTicket.getId(), TicketStatus.IN_PROGRESS);
+        ticketManager.updateTicketStatus(logoutTicket.getId(), TicketStatus.TESTING);
+        ticketManager.updateTicketStatus(logoutTicket.getId(), TicketStatus.IN_REVIEW);
+        ticketManager.updateTicketStatus(logoutTicket.getId(), TicketStatus.DEPLOYED);
         // Invalid Status Update (Trying to revert status)
-        ticketManager.updateTicketStatus(storyTicket.getId(), TicketStatus.TESTING);
+        ticketManager.updateTicketStatus(logoutTicket.getId(), TicketStatus.TESTING);
         // Story Ticket completed
-        System.out.println(storyTicket);
+        System.out.println(logoutTicket);
 
 
         // Using EPIC ticket to test subtask flow for 2 cases on same parent

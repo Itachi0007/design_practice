@@ -27,7 +27,7 @@ public abstract class Ticket {
     public TicketType getType() { return type; }
 
     public boolean setStatus(TicketStatus newStatus) {
-        if (FlowStatus.isValidTransition(type, this.status, newStatus)) {
+        if (FlowStatus.isValidTransition(this.type, this.status, newStatus)) {
             System.out.println("Ticket-" + this.id + ": Updated from " + this.status + " to " + newStatus);
             this.status = newStatus;
             return true;
@@ -36,6 +36,8 @@ public abstract class Ticket {
             return false;
         }
     }
+
+
 
     @Override
     public String toString() {

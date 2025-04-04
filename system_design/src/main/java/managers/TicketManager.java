@@ -1,5 +1,6 @@
 package managers;
 
+import models.Sprint;
 import models.Ticket;
 import models.TicketInstances.EpicTicket;
 import models.TicketInstances.OnCallTicket;
@@ -22,9 +23,8 @@ public class TicketManager {
         Ticket ticket;
         switch (type) {
             case STORY:
+                // remember only story tickets can be added in the SPRINT through SprintManager later
                 ticket = new StoryTicket(title);
-                // only story tickets can be added in the SPRINT
-                sprint.addStoryToSprint(ticket);
                 break;
             case EPIC:
                 ticket = new EpicTicket(title);
@@ -36,6 +36,7 @@ public class TicketManager {
                 throw new IllegalArgumentException("Invalid ticket type");
         }
         ticketMap.put(ticket.getId(), ticket);
+        System.out.println("SUCCESS: New Ticket created - " + title + " with ID - " + ticket.getId());
         return ticket;
     }
 
@@ -55,4 +56,5 @@ public class TicketManager {
     public void deleteTicket(int ticketId) {
         ticketMap.remove(ticketId);
     }
+
 }

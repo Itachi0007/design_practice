@@ -1,7 +1,5 @@
 package models;
 
-import managers.Sprint;
-
 public class TicketInstances {
     public static class StoryTicket extends Ticket {
         Sprint sprint;
